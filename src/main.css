@@ -18,6 +18,10 @@ footer {
     padding-bottom: 100px;
 }
 
+p {
+    line-height: 20px;
+}
+
 /* NAVIGATION =============================================================== */
 nav {
     background-color: #648880;
@@ -59,7 +63,7 @@ nav {
     margin-top: 50px;
     margin-left: auto;
     margin-right: auto;
-    width: 80%;
+    width: 50%;
 }
 
 strong {
