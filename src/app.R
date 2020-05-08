@@ -11,7 +11,7 @@ for(j in 1:8)
 {
   
   #Creating Event Data
-  covid_cases <- read.csv("covid_data.csv")
+  covid_cases <- read.csv("data/covid_data.csv")
   days_min <-0
   days_max <-0
   days_total <-0
@@ -32,7 +32,7 @@ for(j in 1:8)
   covid_cases$status <- censor
   
   #Reading in other variables of interest
-  external <- read.csv("external.csv")
+  external <- read.csv("data/external.csv")
   combined <- merge(external, covid_cases, "fips")
   
   #Spliting Datasets
