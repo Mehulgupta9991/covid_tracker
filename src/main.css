@@ -1,7 +1,57 @@
+html {
+    font-family: Avenir, Helvetica, sans-serif;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 25px;
+}
+
+/* NAVIGATION =============================================================== */
+nav {
+    background-color: #648880;
+    text-align: right;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-right: 25px;
+}
+
+.primary-nav a {
+    text-align: right;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: white;
+    padding-right: 20px;
+}
+
+.primary-nav a:last-child {
+    padding-right: 0;
+}
+
+#home:hover, #stats:hover {
+    color: #a9b2b9;
+}
+
+#stats-title {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 70px;
+}
+
+
+/* MAIN APP ================================================================= */
+
 .container {
-	margin-left: auto;
-	width: 80%;
-	height: 450px;
+    text-align: center;
+    position: fixed;
+    margin: 100px auto;
+	width: 90%;
+    height: 750px;
+}
+
+.container .title {
+    text-align: left;
+    margin-left: 3em;
 }
 
 #trend-app {
@@ -9,4 +59,58 @@
 	width: 80%;
 	height: 100%;
 	border: none;
+}
+
+
+/* TABLE ==================================================================== */
+table {
+    margin: auto;
+    margin-bottom: 44px;
+    width: 85%;
+}
+
+table:last-child {
+    margin-bottom: 0;
+}
+
+th, td {
+    padding-bottom: 22px;
+    vertical-align: top;
+    text-align: right;
+}
+
+th {
+    text-align: right;
+}
+
+thead {
+    line-height: 44px;
+}
+
+thead th {
+    color: #648880;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: left;
+}
+
+tbody th {
+    color: #a9b2b9;
+    font-size: 14px;
+    padding-top: 22px;
+    text-transform: uppercase;
+}
+
+tbody td {
+    border-top: 1px solid #dfe2e5;
+    border-bottom: 1px solid #dfe2e5;
+    padding-top: 21px;
+}
+
+tbody td:last-of-type {
+    padding-right: 0;
+}
+
+.table-province {
+    text-align: left;
 }

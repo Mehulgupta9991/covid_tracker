@@ -3,12 +3,24 @@
     <head>
         <title>COVID-19 Tracker</title>
         <meta charset="utf-8">
+        <link rel="stylesheet" href="reset.css">
         <link rel="stylesheet" href="main.css">
     </head>
 
     <body>
+        <header>
+            <nav class="primary-nav">
+                <a id="home" href="index.html">Home</a>
+                <a id="stats" href="stats.html">Reference Stats</a>
+            </nav>
+        </header>
+
 		<section class="container">
-			<iframe id="trend-app" src=""></iframe>
+            <header>
+                <h1 class="title">COVID-19 Modeller</h1>
+            </header>
+
+			<iframe id="trend-app" src="https://tig3r66.shinyapps.io/covid_tracker/" alt="trend-app"></iframe>
 		</section>
     </body>
 </html>
