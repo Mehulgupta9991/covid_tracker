@@ -103,11 +103,7 @@ table:last-child {
 th, td {
     padding-bottom: 22px;
     vertical-align: top;
-    text-align: right;
-}
-
-th {
-    text-align: right;
+    text-align: left;
 }
 
 thead {
