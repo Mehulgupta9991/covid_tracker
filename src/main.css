@@ -7,6 +7,17 @@ h1 {
     margin-bottom: 25px;
 }
 
+h2 {
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+footer {
+    padding-bottom: 100px;
+}
+
 /* NAVIGATION =============================================================== */
 nav {
     background-color: #648880;
@@ -28,7 +39,12 @@ nav {
     padding-right: 0;
 }
 
-#home:hover, #stats:hover {
+#group-name {
+    position: absolute;
+    left: 7em;
+}
+
+#about:hover, #home:hover, #stats:hover {
     color: #a9b2b9;
 }
 
@@ -38,6 +54,17 @@ nav {
     margin-left: 70px;
 }
 
+/* TEXT CONTAINER =========================================================== */
+.text-container {
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+
+strong {
+    font-weight: bold;
+}
 
 /* MAIN APP ================================================================= */
 

@@ -58,7 +58,8 @@ storage = do.call(cbind, datalist)
 ui <- fluidPage(
    
    # Application title
-   titlePanel("Covid-19 Predictor"),
+#    titlePanel("Covid-19 Predictor"),
+   titlePanel(""),
    
    # Sidebar with a slider input for number of bins 
    sidebarLayout(
@@ -168,7 +169,12 @@ server <- function(input, output) {
       
       spline.d <- as.data.frame(spline(final$days, final$Cases))
       spline.x <- as.data.frame(spline(hospitalization$days, hospitalization$Cases))
-      ggplot(final) + coord_cartesian(xlim = c(0, 40), ylim = c(0, 130))+ theme_bw() + geom_hline(yintercept=input$Hospital, linetype="dashed", color = "dark blue", size=0.5) + xlab("Days From First Confirmed Case") + ylab("Total Number of Cases") + geom_line(data = spline.d, aes(x = x, y = y)) + geom_line(data = spline.x, aes(x = x, y = y, col="red"))
+      ggplot(final) + coord_cartesian(xlim = c(0, 40), ylim = c(0, 130))+ theme_bw() +
+      geom_hline(yintercept=input$Hospital, linetype="dashed", color = "dark blue", size=0.5) +
+      xlab("Days From First Confirmed Case") + ylab("Total Number of Cases") +
+      geom_line(data = spline.d, aes(x = x, y = y)) +
+      geom_line(data = spline.x, aes(x = x, y = y, col="red")) +
+      theme(legend.position="none")
       
 
    })

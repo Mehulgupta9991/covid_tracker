@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>COVID-19 Tracker</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="reset.css">
+        <link rel="stylesheet" href="main.css">
+    </head>
+
+    <body>
+        <header>
+            <nav class="primary-nav">
+                <a id="group-name">Youreka Data Scientists</a>
+                <a id="home" href="index.html">Home</a>
+                <a id="stats" href="stats.html">Reference Stats</a>
+                <a id="about" href="motivation.html">Motivation</a>
+                <a id="about" href="analytics.html">Analytics</a>
+            </nav>
+        </header>
+
+		<section class="text-container">
+            <header>
+                <h1 class="title">Motivation</h1>
+            </header>
+
+            <article>
+                <h2>Project Name</h2>
+                <p>Modelling the Spread of COVID-19 as a Function of Regional Features
+                </p> <br>
+
+                <h2>Project Summary</h2>
+                <p>We generated an interactive tool to model the early spread of the COVID-19 virus that allows users to modify features of the region of interest (population density, etc.). This was built upon a weighted model that was trained using US county-level data, and associated features of these regions. This tool is intended to allow policy-makers and the general public to better understand the impacts of particular regional features on the spread of the virus, and potentially inform decision making by identifying regions of higher risk for COVID-19 spread and resurgence.</p> <br>
+
+                <h2>What is the problem we’re trying to solve?</h2>
+                <p>The spread of COVID-19 has halted global economies, as intervention efforts have forced governments to implement strict distancing and risk mitigation guidelines to “flatten the curve”. These efforts have attempted to limit the spread of the virus, in order to prevent overwhelming health systems that service COVD-19 patients. In Canada, COVID-19 has had widespread impacts, and government policy has begun to “flatten the curve”. However, there is substantial variation in the number of cases and deaths associated with COVID-19 between different regions of Canada. This heterogeneity in viral spread rate is likely associated with features of these regions that may influence transmission – for example, the density of population. A better understanding of these features that predispose particular regions to higher rates of spread may inform municipal, provincial and federal government decisions on plans for lifting restrictions, preparing for a potential second wave, and provision of additional support to high-risk regions. In short, by understanding these features, we can identify the relative risk of COVID-19 spread in regions across Canada.</p> <br>
+
+                <p>This unprecedented crisis is occurring in an unprecedented time. Increased data collection and analysis capacity has allowed research groups across the world to better understand the spread of the virus and heavily inform policy. We have seen the development of several models that predict the future spread of the virus and potential impacts of public health interventions. However, there is very little previous work on better understanding the features of regions that increase the risk of viral spread within that region. Also of interest, Canadian public data collection and analysis on the spread of the virus has been far less sophisticated and granular than comparable countries like the USA or Germany. A major impact of this limited data collection has been limited public engagement with data collection for COVID-19.</p> <br>
+
+                <p>How did we attempt to solve it?
+                We have created an interactive tool that can allow for visualization of the early spread of COVID-19 in a hypothetical region with defined features. This tool will allow for users to modify certain features of the region (like population density, etc) and visualize the impact on the early spread of the virus.</p> <br>
+
+                <p>In order to create a model that can reflect the relative impact of these features on the spread of the virus, we used real-world data of COVID-19 spread in the first 3 months. The primary limitation for Canada is the limited availability of granular data detailing the spread of COVID-19 within particular regions. However, the USA data collection has been granular – documenting the spread of the virus within particular counties (3000+ within the country). Given the economic, social and regional similarity between USA and Canada, we generated a model that weighted different features of individual counties in the prediction of COVID-19 spread. This model was then used to create an interactive tool that allowed visualization of the spread of the virus based upon specific features of the region of interest. Our tool is accompanied by data relevant to Canadian provinces, allowing for modelling of viral spread in different regions. Of interest, this tool allows for users to modify these parameters based upon their particular region of interest - whether they be Canadian provinces, cities or other regions.</p>
+            </article>
+
+            <footer></footer>
+            
+		</section>
+    </body>
+</html>
