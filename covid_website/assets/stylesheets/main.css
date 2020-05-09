@@ -21,6 +21,7 @@ footer {
 p {
     line-height: 20px;
     font-size: 18px;
+    text-align: justify;
 }
 
 strong {
@@ -33,7 +34,7 @@ nav {
     text-align: right;
     padding-top: 25px;
     padding-bottom: 25px;
-    padding-right: 25px;
+    padding-right: 50px;
 }
 
 .primary-nav a {
@@ -53,7 +54,7 @@ nav {
     left: 7em;
 }
 
-#about:hover, #home:hover, #stats:hover {
+#motivation:hover, #analytics:hover, #home:hover, #stats:hover {
     color: #a9b2b9;
 }
 
@@ -83,6 +84,10 @@ nav {
     margin: 100px auto;
 	width: 90%;
     height: 750px;
+}
+
+.title {
+    color: #648880;
 }
 
 .container .title {
