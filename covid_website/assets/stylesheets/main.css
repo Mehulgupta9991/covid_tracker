@@ -20,6 +20,11 @@ footer {
 
 p {
     line-height: 20px;
+    font-size: 18px;
+}
+
+strong {
+    font-weight: bold;
 }
 
 /* NAVIGATION =============================================================== */
@@ -66,8 +71,8 @@ nav {
     width: 50%;
 }
 
-strong {
-    font-weight: bold;
+#stats-title-container {
+    margin-left: 1em;
 }
 
 /* MAIN APP ================================================================= */
@@ -107,25 +112,15 @@ table:last-child {
 th, td {
     padding-bottom: 22px;
     vertical-align: top;
-    text-align: left;
-}
-
-thead {
-    line-height: 44px;
+    text-align: right;
 }
 
 thead th {
     color: #648880;
     font-size: 16px;
     font-weight: 500;
-    text-align: left;
-}
-
-tbody th {
-    color: #a9b2b9;
-    font-size: 14px;
-    padding-top: 22px;
-    text-transform: uppercase;
+    text-align: right;
+    line-height: 44px;
 }
 
 tbody td {
