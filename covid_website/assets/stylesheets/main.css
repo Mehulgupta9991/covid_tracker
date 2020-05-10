@@ -28,6 +28,10 @@ strong {
     font-weight: bold;
 }
 
+ul {
+    list-style: disc;
+}
+
 /* NAVIGATION =============================================================== */
 nav {
     background-color: #648880;
@@ -80,10 +84,10 @@ nav {
 
 .container {
     text-align: center;
-    position: fixed;
     margin: 100px auto;
 	width: 90%;
-    height: 750px;
+    height: 550px;
+    margin-bottom: 200px;
 }
 
 .title {
@@ -100,6 +104,15 @@ nav {
 	width: 80%;
 	height: 100%;
 	border: none;
+}
+
+#help {
+    text-align: left;
+    margin-left: 150px;
+}
+
+#help li {
+    margin-left: 50px;
 }
 
 

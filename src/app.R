@@ -20,11 +20,29 @@ for(j in 1:6)
   datalist[[j]]<-regression
 }
 
+
+#Add External Data_Deaths
+covid_deaths <- read.csv("data/deaths.csv")
+external <- read.csv("data/external.csv")
+combined_d <- merge(external, covid_deaths, "fips")
+
+#model Generation_Deaths
+datalist_deaths<-list()
+j<-1
+for(j in 1:4)
+{
+  day<-20+(j*5)+10 #a 15 day lag time is added
+  regression_d <- lm( combined_d[,day]~percent_seniors + percent_poverty + income + population_density, data = combined_d)
+  datalist_deaths[[j]]<-regression_d
+}
+
+
+
 # Define UI for application that draws a histogram
 ui <- fluidPage(
   
   # Application title
-  titlePanel(""),
+  titlePanel("Covid-19 Predictor"),
   
   # Sidebar with a slider input for number of bins 
   sidebarLayout(
@@ -53,7 +71,7 @@ ui <- fluidPage(
       sliderInput("population_density",
                   "Population Density:",
                   min = 3,
-                  max = 1131,
+                  max = 500,
                   value = 55,
                   step=10)),
       
@@ -82,6 +100,11 @@ ui <- fluidPage(
       user_val$Score_25 <- predict(datalist[[5]], user_val)
       user_val$Score_30 <- predict(datalist[[6]], user_val)
       
+      user_val$Death_5 <- predict(datalist_deaths[[1]], user_val)
+      user_val$Death_10 <- predict(datalist_deaths[[2]], user_val)
+      user_val$Death_15 <- predict(datalist_deaths[[3]], user_val)
+      user_val$Death_20 <- predict(datalist_deaths[[4]], user_val)
+
       cases<-0
       cases<-append(cases,sum(user_val[,5]))
       cases<-append(cases,sum(user_val[,6]))
@@ -90,22 +113,31 @@ ui <- fluidPage(
       cases<-append(cases,sum(user_val[,9]))
       cases<-append(cases,sum(user_val[,10]))
       
+      deaths<-0
+      deaths<-append(deaths,sum(user_val[,11]))
+      deaths<-append(deaths,sum(user_val[,12]))
+      deaths<-append(deaths,sum(user_val[,13]))
+      deaths<-append(deaths,sum(user_val[,14]))
+
       final<-as.data.frame(cases)
       final$days<-c(0,5,10,15,20,25,30)
-      hospitalization <- final
-      hospitalization$cases <- hospitalization$cases *0.15
-
-      spline.x <- as.data.frame(spline(hospitalization$days, hospitalization$cases))
-      spline.d <- as.data.frame(spline(final$days, final$cases))
-      splines <- merge(spline.x, spline.d,"x")
-      names(splines)<-c("Days", "Hospitalizations", "Cases")
+      
+      final_d<-as.data.frame(deaths)
+      final_d$days<-c(0,15,20,25,30)
+      
+      spline.x <- as.data.frame(spline(final_d$days, final_d$deaths, n=25))
+      spline.d <- as.data.frame(spline(final$days, final$cases, n=25))
+      splines <- cbind(spline.x, spline.d)
+      splines[,3] <-NULL
+      
+      names(splines)<-c("Days", "Deaths", "Cases")
       
       dygraph(splines) %>% dyOptions(colors=c("#ff5b5b","#4572ad"), fillGraph = T, fillAlpha = 0.65) %>%
         dyHighlight(highlightSeriesOpts = list(strokeWidth = 3)) %>% 
-        dyAxis("x", drawGrid = FALSE, label="Days since first confirmed case") %>% 
-        dyAxis("y", label = "COVID-19 cases per 100,000")%>%
-        dyLimit(10, label = "Average Ventilator count", color = "Dark Blue", labelLoc = "left")%>%
-        dyLimit(30, label = "Average ICU Bed count", color = "Dark Blue", labelLoc = "left") %>%
+        dyAxis("x", drawGrid = FALSE, label="Days since 1st confirmed case (drag to zoom)") %>% 
+        dyAxis("y", label = "Cases per 100,000", valueRange=c(0,250))%>%
+        dyLimit(10, label = "Ventilator count", color = "Dark Blue", labelLoc = "left")%>%
+        dyLimit(30, label = "ICU bed count", color = "Dark Blue", labelLoc = "left") %>%
         dyRangeSelector(height=20)
       
     })
